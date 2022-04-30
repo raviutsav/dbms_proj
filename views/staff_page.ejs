@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <div id="form">
+
+        <form action="/staff_page" method = "POST">
+
+            <div id="Staff">
+
+                <h1 class="info">Staff Information</h1><br>
+
+                <label class="Label" for="name">Name<span>*</span></label>
+                <br>
+                <input class="Text" type="text" id="name" name="name"><br>
+                <br>
+
+                <label class="Label" for="age">Age<span>*</span></label>
+                <br>
+                <input class="Text" type="number" id="number" name="age"><br>
+                <br>
+
+                <label class="Label" for="gender">Gender<span>*</span></label>
+                <br>
+                <input class="Text" type="text" id="gender" name="gender"><br>
+                <br>
+
+                <label class="Label" for="contact">Contact<span>*</span></label>
+                <br>
+                <input class="Text" type="text" id="contact" name="contact"><br>
+                <br>
+
+                <label class="Label" for="address">Address<span>*</span></label>
+                <br>
+                <input class="Text" type="text" id="address" name="address"><br>
+                <br>
+            
+            </div>
+            <br>
+            <br>
+            <br>
+
+            <div>
+                <input id="Submit" type="submit" value="Submit">
+            </div>
+            
+        </form>
+    </div>
+
+    <hr>
+    <br>
+    <br>
+    <br>
+    <h3>Staff Table</h3>
+    <br>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+
+                <tr>
+                    <th>Staff ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Contact</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% for(var i=0; i < rows.length; i++) { %>
+                    <tr>
+                        <td><%= rows[i].staff_id %></td>
+                        <td><%= rows[i].name %></td>
+                        <td><%= rows[i].age %></td>
+                        <td><%= rows[i].gender %></td>
+                        <td><%= rows[i].contact %></td>
+                        <td><%= rows[i].address %></td>
+                   </tr>
+                <% } %>
+            </tbody>
+            
+            
+        </table>
+
+    </div>
+
+    <br>
+    <footer> 
+        <a href="/">Home</a>
+    </footer>
+
+</body>
+
+</html>

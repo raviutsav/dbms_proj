@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    
+    <div id="form">
+
+        <form action="/purchase_page" method = "POST">
+
+            <div class="pur pur1">
+                <h1 class="info">Staff Information</h1><br>
+
+                <label for="staff_id" class="Label">Staff ID<span>*</span></label><br>
+                <input type="number" id="staff_id" name="staff_id" class="Text"><br>
+                
+            </div>
+            
+            <div class="pur pur2">
+
+                <h1 class="info">Purchase Information</h1><br>
+
+                <label for="date" class="Label"> Date<span>*</span></label>
+                <input type="date" id="date" name="date" class="Text"><br>
+                <br>
+
+                <label for="seller_name" class="Label">Seller Name<span>*</span></label><br>
+                <input type="text" id="seller_name" name="seller_name" class="Text"><br> <br>
+
+                <label for="milk_type" class="Label">Milk Type<span>*</span></label><br>
+                <input type="text" id="milk_type" name="milk_type" class="Text"><br> <br>
+
+                <label for="rate" class="Label">Rate<span>*</span></label><br>
+                <input type="number" step="0.25" id="rate" name="rate" class="Text"><br> <br>
+        
+                <label for="quantity" class="Label">Quantity<span>*</span></label><br>
+                <input type="number" id="quantity" name="quantity" class="Text"><br> <br>
+        
+                <label for="total" class="Label">Total<span>*</span></label><br>
+                <input type="number" step="0.25" id="total" name="total" default="0" class="Text" placeholder="0"><br>
+                <br>
+            </div>
+    
+     
+            <input id="Submit1" type="submit" value="Submit">
+        </form>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <hr>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h3>All Purchase Made</h3>
+    <br>
+    
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+
+                <tr>
+                    <th>Purchase ID</th>
+                    <th>Staff ID</th>
+                    <th>Seller Name</th>
+                    <th>Date</th>
+                    <th>Milk Type</th>
+                    <th>Rate</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i < rows.length; i++) { %>
+                    <tr>
+                        <td><%= rows[i].purchase_id %></td>
+                        <td><%= rows[i].staff_id %></td>
+                        <td><%= rows[i].seller_name %></td>
+                        <td><%= rows[i].date %></td>
+                        <td><%= rows[i].milk_type %></td>
+                        <td><%= rows[i].rate %></td>
+                        <td><%= rows[i].quantity %></td>
+                        <td><%= rows[i].total %></td>
+                   </tr>
+                <% } %>
+            </tbody>
+            
+            
+        </table>
+
+    </div>
+    
+    <footer> 
+        <a href="/">Home</a>
+    </footer>
+    
+</body>
+</html>
